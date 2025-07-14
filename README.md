@@ -20,19 +20,12 @@ This custom Odoo module integrates an OCPD-LED8 seven segment display with the P
 
 ## Configuration
 - By default, the display uses serial port `/dev/ttyS1` and baudrate `2400`.
-- 
-- **Configuration Location in Code:**
-- - The default serial port and baudrate are set in the backend Python file:
--   - `pos_seven_segment_display/models/seven_segment_display.py`
--   - Look for the methods: `_send_command`, `initialize_display`, `clear_display`, `set_display_mode`, and `display_value`.
--   - Each of these methods has `port='/dev/ttyS1'` and `baudrate=2400` as default arguments.
--   - To change the defaults, edit these arguments in the code.
--   - Example:
-
-  ```python
-  def _send_command(self, data, port='/dev/ttyS1', baudrate=2400, command_name='Unknown'):
-  ```
--   - You can also override the port and baudrate by passing them as parameters when calling these methods from other modules or endpoints.
+- **Configuration file path:** `addons/pos_seven_segment_display/config/pos_seven_segment_display.conf` 
+  - Example content:
+    ```ini
+    def _send_command(self, data, port='/dev/ttyS1', baudrate=2400, command_name='Unknown'):
+    ```
+- You can change these by editing the POS configuration or by modifying the frontend service calls if needed.
 - The display must be physically connected to the Odoo server's serial port.
 - The Odoo server user must have permission to access the serial port (usually by being in the `dialout` group).
 
@@ -77,7 +70,4 @@ The module exposes the following JSON endpoints (all require authentication):
 - The backend logic can be extended to support other display models or protocols.
 
 ## Authors
-- Htoo Aung Khant
-
-## License
-- AGPL-3.0
+- Innovatic IoT House / Htoo Aung Khant

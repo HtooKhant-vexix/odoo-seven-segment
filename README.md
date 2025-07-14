@@ -28,10 +28,10 @@ This custom Odoo module integrates an OCPD-LED8 seven segment display with the P
 -   - Each of these methods has `port='/dev/ttyS1'` and `baudrate=2400` as default arguments.
 -   - To change the defaults, edit these arguments in the code.
 -   - Example:
--     ```python
--     def _send_command(self, data, port='/dev/ttyS1', baudrate=2400, command_name='Unknown'):
--         # ...
--     ```
+
+  ```python
+  def _send_command(self, data, port='/dev/ttyS1', baudrate=2400, command_name='Unknown'):
+  ```
 -   - You can also override the port and baudrate by passing them as parameters when calling these methods from other modules or endpoints.
 - The display must be physically connected to the Odoo server's serial port.
 - The Odoo server user must have permission to access the serial port (usually by being in the `dialout` group).
